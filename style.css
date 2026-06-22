@@ -50,6 +50,7 @@ a {
 	border: 1px solid var(--border);
 	border-radius: 22px;
 	background: rgba(255, 255, 255, 0.62);
+	-webkit-backdrop-filter: blur(12px);
 	backdrop-filter: blur(12px);
 	box-shadow: 0 16px 40px rgba(29, 27, 24, 0.08);
 }
@@ -144,6 +145,7 @@ p {
 .panel {
 	background: var(--card);
 	border: 1px solid var(--border);
+	-webkit-backdrop-filter: blur(12px);
 	backdrop-filter: blur(12px);
 	box-shadow: 0 20px 60px rgba(29, 27, 24, 0.08);
 }
@@ -384,6 +386,135 @@ h1 {
 	min-height: 200px;
 }
 
+.analytics-layout {
+	display: grid;
+	gap: 18px;
+}
+
+.analytics-summary {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.analytics-metric,
+.analytics-chart,
+.analytics-insight {
+	border: 1px solid var(--border);
+	background: rgba(255, 255, 255, 0.5);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+.analytics-metric {
+	padding: 16px;
+	border-radius: 18px;
+	display: grid;
+	gap: 6px;
+}
+
+.analytics-metric span {
+	font-size: 0.74rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	font-weight: 700;
+	color: var(--accent-dark);
+}
+
+.analytics-metric strong {
+	font-size: 1.7rem;
+	line-height: 1;
+}
+
+.analytics-metric small {
+	color: var(--muted);
+	line-height: 1.5;
+}
+
+.analytics-chart,
+.analytics-insights-wrap {
+	padding: 18px;
+	border-radius: 20px;
+}
+
+.analytics-chart-header {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	align-items: baseline;
+	margin-bottom: 16px;
+}
+
+.analytics-chart-header h4,
+.analytics-insights-wrap h4 {
+	margin-bottom: 0;
+	font-size: 1.05rem;
+}
+
+.analytics-chart-header p {
+	margin-bottom: 0;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.analytics-bars {
+	display: flex;
+	align-items: end;
+	gap: 12px;
+	min-height: 180px;
+}
+
+.analytics-bar {
+	flex: 1;
+	display: grid;
+	gap: 8px;
+	justify-items: center;
+	min-width: 0;
+}
+
+.analytics-bar-track {
+	width: 100%;
+	min-height: 130px;
+	display: flex;
+	align-items: end;
+	justify-content: center;
+}
+
+.analytics-bar-fill {
+	width: 100%;
+	border-radius: 14px 14px 8px 8px;
+	background: linear-gradient(180deg, var(--accent), rgba(217, 107, 79, 0.35));
+	box-shadow: 0 12px 24px rgba(217, 107, 79, 0.18);
+}
+
+.analytics-bar-value {
+	font-size: 0.85rem;
+	font-weight: 700;
+}
+
+.analytics-bar-label {
+	font-size: 0.78rem;
+	color: var(--muted);
+	text-transform: uppercase;
+	letter-spacing: 0.12em;
+	text-align: center;
+}
+
+.analytics-insights {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 10px;
+}
+
+.analytics-insight {
+	padding: 14px 16px;
+	border-radius: 16px;
+	line-height: 1.6;
+	border-left: 3px solid var(--accent);
+}
+
 @media (max-width: 920px) {
 	.topbar {
 		width: min(1100px, calc(100% - 32px));
@@ -426,6 +557,10 @@ h1 {
 		grid-column: span 12;
 	}
 
+	.analytics-summary {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
 	.hero-preview {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
@@ -454,4 +589,89 @@ h1 {
 	.topnav a {
 		padding-inline: 0.82rem;
 	}
+
+	.analytics-summary {
+		grid-template-columns: 1fr;
+	}
+
+	.analytics-chart-header {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.analytics-bars {
+		gap: 8px;
+	}
+}
+
+
+/* Timer Specific Styles */
+.timer-display-wrapper {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto 20px;
+}
+
+.timer-svg {
+	transform: rotate(-90deg);
+	/* Starts the circle at the top */
+	width: 100%;
+	height: 100%;
+}
+
+.timer-track {
+	fill: none;
+	stroke: var(--border);
+	stroke-width: 6;
+}
+
+.timer-progress {
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 6;
+	stroke-linecap: round;
+	/* 283 is approx 2 * pi * 45 (the radius) */
+	stroke-dasharray: 283;
+	stroke-dashoffset: 0;
+	transition: stroke-dashoffset 1s linear;
+}
+
+.timer-time {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--text);
+}
+
+.timer-modes,
+.timer-controls {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 15px;
+}
+
+.timer-modes button {
+	background: none;
+	border: none;
+	color: var(--muted);
+	cursor: pointer;
+	font-size: 0.9rem;
+	padding: 5px 10px;
+	font-weight: 700;
+}
+
+.timer-modes button.active {
+	color: var(--accent-dark);
+	border-bottom: 2px solid var(--accent);
+}
+
+.timer-controls button {
+	padding: 0.6rem 1.2rem;
+	font-size: 0.9rem;
+	cursor: pointer;
 }

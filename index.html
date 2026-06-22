@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Smart Habit Tracker</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="js/timer.js" defer></script>
+	<script src="js/analytics.js" defer></script>
+	<script src="js/app.js" defer></script>
 </head>
+
 <body>
 	<header class="topbar">
 		<div class="brand-lockup">
@@ -29,7 +34,8 @@
 			<div class="hero-copy-block">
 				<p class="eyebrow">Smart Habit Tracker</p>
 				<h1>Build routines that actually stick.</h1>
-				<p class="hero-copy">Track habits, keep streaks alive, and stay on top of your day with a single focused page that feels calm and easy to use.</p>
+				<p class="hero-copy">Track habits, keep streaks alive, and stay on top of your day with a single focused
+					page that feels calm and easy to use.</p>
 				<div class="hero-actions">
 					<a class="primary-button" href="#dashboard">Open Dashboard</a>
 					<a class="secondary-button" href="#features">See Features</a>
@@ -60,7 +66,8 @@
 				<p class="eyebrow">Features</p>
 				<h2 id="features-title">Everything you need in one place.</h2>
 			</div>
-			<p class="section-copy">The layout keeps the important actions visible first, then gives you enough room for habits, streaks, and insights.</p>
+			<p class="section-copy">The layout keeps the important actions visible first, then gives you enough room for
+				habits, streaks, and insights.</p>
 		</section>
 
 		<section id="features" class="feature-grid">
@@ -83,7 +90,8 @@
 				<p class="eyebrow">Dashboard</p>
 				<h2 id="dashboard-title">A cleaner view of progress.</h2>
 			</div>
-			<p class="section-copy">Each panel has a job, so the page feels more like a real product and less like a placeholder layout.</p>
+			<p class="section-copy">Each panel has a job, so the page feels more like a real product and less like a
+				placeholder layout.</p>
 		</section>
 
 		<section id="dashboard" class="dashboard-card">
@@ -100,9 +108,26 @@
 					<h3>Today</h3>
 					<p>Today's summary, checklist, and quick progress snapshot.</p>
 				</article>
-				<article class="panel">
-					<h3>Timer</h3>
-					<p>Focused work or habit timing area.</p>
+				<article class="panel" id="timer-panel">
+					<h3>Focus Timer</h3>
+
+					<div class="timer-display-wrapper">
+						<svg class="timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							<circle class="timer-track" cx="50" cy="50" r="45"></circle>
+							<circle class="timer-progress" id="timer-circle" cx="50" cy="50" r="45"></circle>
+						</svg>
+						<div class="timer-time" id="time-display">25:00</div>
+					</div>
+
+					<div class="timer-modes">
+						<button id="mode-work" class="active">Work (25m)</button>
+						<button id="mode-break">Break (5m)</button>
+					</div>
+
+					<div class="timer-controls">
+						<button id="btn-start" class="primary-button">Start</button>
+						<button id="btn-reset" class="secondary-button">Reset</button>
+					</div>
 				</article>
 				<article class="panel">
 					<h3>Streaks</h3>
@@ -112,7 +137,7 @@
 					<h3>Mood</h3>
 					<p>Record how the day feels.</p>
 				</article>
-				<article class="panel panel-wide">
+				<article class="panel panel-wide" id="analytics-panel">
 					<h3>Analytics</h3>
 					<p>Use this area for charts, stats, and longer-term trend insights.</p>
 				</article>
@@ -120,4 +145,5 @@
 		</section>
 	</main>
 </body>
+
 </html>
