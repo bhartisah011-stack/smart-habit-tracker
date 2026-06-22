@@ -15,7 +15,10 @@ new Chart(document.getElementById("weeklyChart"), {
         labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
         datasets: [{
             label: "Habits Completed",
-            data: [5,6,4,7,8,6,9]
+            data: [5,6,4,7,8,6,9],
+            backgroundColor: "#d96b4f",
+    borderColor: "#d96b4f",
+    borderWidth: 2
         }]
     }
 });
@@ -28,7 +31,10 @@ new Chart(document.getElementById("focusChart"), {
         labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
         datasets: [{
             label: "Focus Hours",
-            data: [2,3,4,2,5,6,4]
+            data: [2,3,4,2,5,6,4],
+            borderColor: "#d96b4f",
+    backgroundColor: "#d96b4f",
+    tension: 0.3
         }]
     }
 });
@@ -41,7 +47,10 @@ new Chart(document.getElementById("moodChart"), {
         labels: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
         datasets: [{
             label: "Mood Rating",
-            data: [3,4,2,5,4,5,4]
+            data: [3,4,2,5,4,5,4],
+            borderColor: "#d96b4f",
+    backgroundColor: "#d96b4f",
+    tension: 0.3
         }]
     }
 });
