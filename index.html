@@ -128,6 +128,7 @@
 						<button id="btn-start" class="primary-button">Start</button>
 						<button id="btn-reset" class="secondary-button">Reset</button>
 					</div>
+					<p class="timer-expand-hint" aria-hidden="true">⤢ Click to expand</p>
 				</article>
 				<article class="panel">
 					<h3>Streaks</h3>
@@ -144,6 +145,35 @@
 			</div>
 		</section>
 	</main>
+
+	<!-- Focus Timer Expanded Overlay -->
+	<div class="timer-overlay" id="timer-overlay" role="dialog" aria-modal="true" aria-label="Focus Timer">
+		<div class="timer-modal" id="timer-modal">
+			<button class="timer-modal-close" id="timer-overlay-close" aria-label="Close focus timer">✕</button>
+			<p class="timer-modal-kicker">Focus Mode</p>
+			<h2 class="timer-modal-title">Stay in the zone.</h2>
+
+			<div class="timer-display-wrapper">
+				<svg class="timer-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+					<circle class="timer-track" cx="50" cy="50" r="45"></circle>
+					<circle class="timer-progress" id="timer-circle-expanded" cx="50" cy="50" r="45"></circle>
+				</svg>
+				<div class="timer-time" id="time-display-expanded">25:00</div>
+			</div>
+
+			<div class="timer-modes">
+				<button id="mode-work-expanded" class="active">Work (25m)</button>
+				<button id="mode-break-expanded">Break (5m)</button>
+			</div>
+
+			<div class="timer-controls">
+				<button id="btn-start-expanded" class="primary-button">Start</button>
+				<button id="btn-reset-expanded" class="secondary-button">Reset</button>
+			</div>
+
+			<p class="timer-modal-status" id="timer-modal-status">Ready when you are.</p>
+		</div>
+	</div>
 </body>
 
 </html>
